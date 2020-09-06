@@ -312,7 +312,12 @@ public class Monitoramento extends javax.swing.JFrame {
         somaMemoria = somaMemoria + sorteadoMemoria;
         Integer mediaMemoria = somaMemoria/contador;
         lblMediaMemoria.setText(mediaMemoria.toString());
-        
+        barCPU.setStringPainted(true);
+        barCPU.setString(String.format("%d %%", sorteadoCPU));
+        barDisco.setStringPainted(true);
+        barDisco.setString(String.format("%d %%", sorteadoDisco));
+        barMemoria.setStringPainted(true);
+        barMemoria.setString(String.format("%.2f %%", sorteadoMemoria));
         
     }//GEN-LAST:event_btnLeituraActionPerformed
 
