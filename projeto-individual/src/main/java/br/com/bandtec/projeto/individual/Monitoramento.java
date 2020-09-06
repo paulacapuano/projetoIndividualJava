@@ -12,7 +12,16 @@ import java.util.Random;
  * @author paula
  */
 public class Monitoramento extends javax.swing.JFrame {
-
+    Integer contador = 0;
+    Integer somaCPU = 0;
+    Integer maximoCPU = 0;
+    Integer minimoCPU = 100;
+    Integer somaDisco = 0;
+    Integer maximoDisco = 0;
+    Integer minimoDisco = 100;
+    Integer somaMemoria = 0;
+    Integer maximoMemoria = 0;
+    Integer minimoMemoria = 100;
     /**
      * Creates new form Monitoramento
      */
@@ -250,21 +259,61 @@ public class Monitoramento extends javax.swing.JFrame {
 
     private void btnLeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeituraActionPerformed
         // TODO add your handling code here:
+        contador ++;
+        
         Random aleatorioCPU = new Random();
         Integer sorteadoCPU = aleatorioCPU.nextInt(101);
         String sorteadoCPUTexto = sorteadoCPU.toString();
         lblValorSorteadoCPU.setText(sorteadoCPUTexto);
         barCPU.setValue(sorteadoCPU);
+        if (sorteadoCPU > maximoCPU ) {
+            maximoCPU = sorteadoCPU;
+            lblValorMaximoCPU.setText(maximoCPU.toString());
+        }
+        if (sorteadoCPU < minimoCPU) {
+            minimoCPU = sorteadoCPU; 
+            lblValorMinimoCPU.setText(minimoCPU.toString());
+        }
+        somaCPU = somaCPU + sorteadoCPU;
+        Integer mediaCPU = somaCPU/contador;
+        lblMediaCPU.setText(mediaCPU.toString());
+        
         Random aleatorioDisco = new Random();
         Integer sorteadoDisco = aleatorioDisco.nextInt(101);
         String sorteadoDiscoTexto = sorteadoDisco.toString();
         lblValorSorteadoDisco.setText(sorteadoDiscoTexto);
         barDisco.setValue(sorteadoDisco);
+        if (sorteadoDisco > maximoDisco ) {
+            maximoDisco = sorteadoDisco;
+            lblValorMaximoDisco.setText(maximoDisco.toString());
+        }
+        if (sorteadoDisco < minimoDisco) {
+            minimoDisco = sorteadoDisco; 
+            lblValorMinimoDisco.setText(minimoDisco.toString());
+        }
+        somaDisco = somaDisco + sorteadoDisco;
+        Integer mediaDisco = somaDisco/contador;
+        lblMediaDisco.setText(mediaDisco.toString());
+        
+        
         Random aleatorioMemoria = new Random();
         Integer sorteadoMemoria = aleatorioMemoria.nextInt(101);
         String sorteadoMemoriaTexto = sorteadoMemoria.toString();
         lblValorSorteadoMemoria.setText(sorteadoMemoriaTexto);
         barMemoria.setValue(sorteadoMemoria);
+        if (sorteadoMemoria > maximoMemoria ) {
+            maximoMemoria = sorteadoMemoria;
+            lblValorMaximoMemoria.setText(maximoMemoria.toString());
+        }
+        if (sorteadoMemoria < minimoMemoria) {
+            minimoMemoria = sorteadoMemoria; 
+            lblValorMinimoMemoria.setText(minimoMemoria.toString());
+        }
+        somaMemoria = somaMemoria + sorteadoMemoria;
+        Integer mediaMemoria = somaMemoria/contador;
+        lblMediaMemoria.setText(mediaMemoria.toString());
+        
+        
     }//GEN-LAST:event_btnLeituraActionPerformed
 
     /**
